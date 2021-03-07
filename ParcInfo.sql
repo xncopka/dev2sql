@@ -22,7 +22,7 @@ create table Poste (nPoste integer primary key,
 					
 create table Logiciel (nLog integer primary key,
 						nomLog text,
-						dateAch timestamp,
+						dateAch date,
 						version text,
 						typeLog text,
 						prix real,
@@ -32,7 +32,7 @@ create table Logiciel (nLog integer primary key,
 create table Installer (numIns serial primary key,
 						nPoste integer,
 						nLog integer,
-						dateIns timestamp default current_timestamp,
+						dateIns timestamp not null default current_timestamp,
 						delai integer
 						);	
 					

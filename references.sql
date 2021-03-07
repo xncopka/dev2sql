@@ -1,6 +1,6 @@
 begin TRANSACTION;
 
-delete from Logiciel where typeLog not in ('UNIX', 'TX', 'PCWS', 'PCNT');
+delete from Logiciel where typeLog not in (select typeLP from Types);
 delete from Salle where indIP not in (select indIP from Segment);
 
 
