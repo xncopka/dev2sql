@@ -1,4 +1,14 @@
+-- Fichier ParcInfo.sql
+-- Alekesandra Maric (1049140) & Thomas Bui (20055825)
+-- pour postgres
+
 begin TRANSACTION;
+
+
+DROP SCHEMA IF EXISTS ParcInfo CASCADE; 
+CREATE SCHEMA ParcInfo;
+SET search_path to ParcInfo;
+
 
 create table Segment (indIP integer primary key,
 					  nomSegment text not null,
@@ -21,13 +31,13 @@ create table Poste (nPoste integer primary key,
 					);				
 					
 create table Logiciel (nLog integer primary key,
-						nomLog text,
-						dateAch date,
-						version text,
-						typeLog text,
-						prix real,
+					   nomLog text,
+					   dateAch date,
+					   version text,
+					   typeLog text,
+					   prix real,
 					   CONSTRAINT pos_prix check(prix >=0)
-						);		
+					  );		
 					
 create table Installer (numIns serial primary key,
 						nPoste integer,
@@ -38,7 +48,7 @@ create table Installer (numIns serial primary key,
 					
 
 create table Types (typeLP text primary key,
-						nomType text
-						);	
+					nomType text
+				   );	
 
 commit;

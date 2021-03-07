@@ -1,5 +1,12 @@
 begin TRANSACTION;
 
+-- Fichier references.sql
+-- Alekesandra Maric (1049140) & Thomas Bui (20055825)
+-- pour postgres
+
+
+SET search_path to ParcInfo;
+
 delete from Logiciel where typeLog not in (select typeLP from Types);
 delete from Salle where indIP not in (select indIP from Segment);
 
